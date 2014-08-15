@@ -1,0 +1,23 @@
+# Experimenting with http://www.fig.sh/
+# To run this on docker:
+#
+#    fig build
+#    fig start
+#
+# Use fig logs to watch the logs, which 
+# should show the links between containers.
+#
+# Use fig scale to start more clients and
+# servers.
+
+server:
+  build: server
+  expose:
+  - "1234"
+  - "8000"
+
+client:
+  build: client
+  links:
+   - server
+
