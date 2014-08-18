@@ -21,3 +21,11 @@ client:
   links:
    - server
 
+# Use this to set REF_HOST on a boot2docker mac setup,
+# before running fig:
+#   export REF_HOST=$(boot2docker ssh "set | grep SSH_CLIENT" | cut -d"'" -f2 | cut -d" " -f1)
+# And have a server for that host, on :8000/works.txt
+hostaccess:
+  build: hostaccess
+  environment: 
+    - REF_HOST
